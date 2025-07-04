@@ -1,0 +1,32 @@
+.card{
+    width: 9.5rem; 
+    height: 8rem;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+.header-card {
+    background: #CE2C32;
+    border-top: 20px;
+    padding-left: 14px;
+    overflow: hidden;
+
+    font-weight: 600;
+    font-size: 20px;
+
+}
+
+.body {
+    background: #ffffff;
+    color: black;
+    min-height: 89px;
+    max-height: 89px;
+    border-bottom: 20px;
+    padding-left: 14px;
+    padding-top: 10px;
+    overflow: hidden;
+
+    font-weight: 600;
+    font-size: 16px;
+}
+
