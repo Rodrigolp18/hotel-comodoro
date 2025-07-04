@@ -1,14 +1,17 @@
-import './CardQuarto.css'
+import './CardQuarto.css';
 
-export function CardQuarto({ numero, descricao }) {
-    return (
-        <div class="card">
-            <div class="header-card">
-                Quarto {numero}
-            </div>
-            <div class="body">
-                {descricao}
-            </div>
-        </div>
-    )
+export default function CardQuarto({ numero, descricao, selecionado, onClick }) {
+  return (
+    <div
+      className={`card ${selecionado ? 'selecionado' : ''}`}
+      onClick={onClick}
+    >
+      <div className="header-card">
+        Quarto {numero}
+      </div>
+      <div className="body">
+        {descricao}
+      </div>
+    </div>
+  );
 }

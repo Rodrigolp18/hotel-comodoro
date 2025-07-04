@@ -1,0 +1,196 @@
+/* === CONTAINER PRINCIPAL DO FORMULÁRIO === */
+.reserva-container {
+  background-color: #d9d9d9;        /* fundo cinza claro */
+  padding: 32px;
+  max-width: 1069px;                /* largura máxima do formulário */
+  margin: 0 auto;                   /* centraliza na tela */
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
+
+/* === LINHAS DE FORMULÁRIO COM FLEX E ESPAÇAMENTO === */
+.reserva-row {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+/* === FORMATAÇÃO PADRÃO PARA LABEL E INPUT: UM EM CIMA DO OUTRO === */
+.reserva-label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* pequeno espaço entre label e input */
+}
+
+/* === QUARTO SELECIONADO === */
+.reserva-quarto {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reserva-quarto input {
+  width: 300px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: #eeeeee;
+  font-size: 14px;
+}
+
+/* === BOTÃO SELECIONAR === */
+.reserva-botao-selecionar {
+  align-self: flex-end;
+  padding: 8px 16px;
+  background-color: #c40000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* === VALOR DA DIÁRIA === */
+.reserva-valor-diaria {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reserva-valor-diaria input {
+  width: 180px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: white;
+}
+
+/* === CUPOM COM BOTÃO LADO A LADO === */
+.reserva-cupom {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reserva-cupom-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.reserva-cupom input {
+  width: 180px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  font-size: 14px;
+  background-color: white;
+}
+
+.reserva-cupom button {
+  padding: 8px 16px;
+  background-color: #c40000;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+/* === TEXTO DO DESCONTO === */
+.reserva-desconto {
+  margin: 8px 0;
+  font-weight: bold;
+  color: green;
+}
+
+/* === FORMA DE PAGAMENTO COM ESPAÇAMENTO INFERIOR === */
+.reserva-pagamento {
+  width: 400px;
+  margin-bottom: 16px; /* cria o espaço abaixo do bloco */
+}
+
+.reserva-pagamento details summary {
+  cursor: pointer;
+  padding: 8px 12px;
+  background-color: white;
+  border-radius: 20px;
+  font-weight: normal;
+}
+
+.reserva-pagamento ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0 0;
+}
+
+.reserva-pagamento li button {
+  padding: 8px;
+  width: 100%;
+  text-align: left;
+  background-color: #f9f9f9;
+  border: none;
+  cursor: pointer;
+}
+
+.reserva-pagamento li button:hover {
+  background-color: #dddddd;
+}
+
+/* === DATAS E HORÁRIOS === */
+.reserva-data-entrada,
+.reserva-data-saida,
+.reserva-checkin,
+.reserva-checkout {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.reserva-data-entrada input,
+.reserva-data-saida input {
+  width: 220px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 14px;
+}
+
+.reserva-checkin input,
+.reserva-checkout input {
+  width: 120px;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 20px;
+  background-color: white;
+  font-size: 14px;
+}
+
+/* === BOTÕES FINAIS === */
+.reserva-botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.reserva-botoes button {
+  background-color: #c40000;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* === LABEL OBRIGATÓRIA COM ASTERISCO === */
+.required::after {
+  content: "*";
+  color: red;
+  margin-left: 4px;
+  font-weight: bold;
+}
