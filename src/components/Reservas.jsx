@@ -1,19 +1,6 @@
-// Aqui vai o modal do formulário da reserva para criar uma reserva e guardar ela na lista de 
-//reservas da página
-
-// Poderia ser feito um if else para usar o mesmo modal, para os 3 modos desse componente, que
-//são o de criar reserva, que aparece com os campos de texto vazios e tem os botões de cancelar e salvar
-//e ele vai realizar o envio dessa reserva para o firebase
-//O modo de editar que já teria as informações enviadas para o firebase, então ele iria puxar as informações
-//mas também poderia fazer o envio para atualizar as informações ao editar
-//E o modo de visualizar reservas fechadas que iriam somente puxar as informações do firebase para visualizar
-
-//Obs: Me foi dado como dica, não criar arquivos especificos para componentes de campo de texto e botões, 
-//pois eles não são reutilizáveis em outras páginas, já que tem só uma, seria tudo feito aqui
-
 import React, { useState } from 'react';
 import './Reservas.css';
-import ModalQuartos from './ModalQuartos'; // Ajuste o caminho se necessário
+import ModalQuartos from './ModalQuartos';
 
 const Reservas = () => {
   const [quartoSelecionado, setQuartoSelecionado] = useState('');
@@ -26,7 +13,6 @@ const Reservas = () => {
   const [dataSaida, setDataSaida] = useState('');
   const [horaSaida, setHoraSaida] = useState('');
 
-  // Modal para seleção de quarto
   const [modalAberto, setModalAberto] = useState(false);
 
   const quartos = [
@@ -74,7 +60,6 @@ const Reservas = () => {
 
   return (
    <div className="reserva-container">
-      {/* Linha: Quarto */}
       <div className="reserva-row">
         <div className="reserva-quarto">
           <label className="required">Quarto</label>
@@ -103,7 +88,6 @@ const Reservas = () => {
         onSelectQuarto={selecionarQuarto} />
       )}
 
-      {/* Linha: Valor diária e Cupom */}
       <div className="reserva-row">
         <div className="reserva-valor-diaria reserva-label">
           <label className="required">Valor da Diária</label>
@@ -127,14 +111,12 @@ const Reservas = () => {
         </div>
       </div>
 
-      {/* Valor com desconto */}
       {valorComDesconto && (
         <div className="reserva-desconto">
           Valor com desconto: R$ {valorComDesconto}
         </div>
       )}
 
-      {/* Forma de Pagamento */}
       <div className="reserva-pagamento reserva-label">
         <label className="required">Forma de Pagamento</label>
         <details>
@@ -151,7 +133,6 @@ const Reservas = () => {
         </details>
       </div>
 
-      {/* Linha: Data de entrada e Check-in */}
       <div className="reserva-row">
         <div className="reserva-data-entrada">
           <label className="required">Data de Entrada</label>
@@ -171,7 +152,6 @@ const Reservas = () => {
         </div>
       </div>
 
-      {/* Linha: Data de saída e Check-out */}
       <div className="reserva-row">
         <div className="reserva-data-saida">
           <label className="required">Data de Saída</label>
@@ -191,7 +171,6 @@ const Reservas = () => {
         </div>
       </div>
 
-      {/* Botões de ação */}
       <div className="reserva-botoes">
         <button onClick={cancelarReserva}>Cancelar</button>
         <button onClick={salvarReserva}>Salvar Reserva</button>

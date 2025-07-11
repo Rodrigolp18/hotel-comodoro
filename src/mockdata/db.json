@@ -1,0 +1,443 @@
+{
+    "cliente" : [
+        {
+            "id" : "1",
+            "name" : "Fernando Alves",
+            "CPF" : "078.853.234-72",
+            "birth" : "15.08.1995",
+            "phone" : "(88)9999-9999",
+            "car" : "BEE4R22",
+            "address" : "Rua João de Tal, n° 3445, Barão de Grajau, Maranhão",
+            "observations" : "O cliente é exigente com a limpeza"
+        },
+        {
+            "id": "2",
+            "name": "Maria Cecília Rocha",
+            "CPF": "321.654.987-01",
+            "birth": "10.03.1988",
+            "phone": "(11)9234-5678",
+            "car": "JHZ1K92",
+            "address": "Av. dos Andradas, 1500, Centro, Belo Horizonte, Minas Gerais",
+            "observations": "Prefere quarto com vista para a rua"
+        },
+        {
+            "id": "3",
+            "name": "Carlos Henrique Lima",
+            "CPF": "456.789.123-33",
+            "birth": "22.11.1979",
+            "phone": "(21)9888-1234",
+            "car": "MQW3F89",
+            "address": "Rua da Glória, 45, Lapa, Rio de Janeiro, RJ",
+            "observations": "Fuma e pede quarto com varanda"
+        },
+        {
+            "id": "4",
+            "name": "Juliana Mendes Souza",
+            "CPF": "874.123.567-09",
+            "birth": "01.05.1992",
+            "phone": "(85)9987-6543",
+            "car": "AZX7D44",
+            "address": "Rua das Rosas, 10, Meireles, Fortaleza, Ceará",
+            "observations": "Vem com animal de estimação"
+        },
+        {
+            "id": "5",
+            "name": "Rafael Augusto Pereira",
+            "CPF": "123.456.789-00",
+            "birth": "09.09.1985",
+            "phone": "(71)9123-4567",
+            "car": "BRL2M90",
+            "address": "Av. Paralela, 3200, Pituaçu, Salvador, Bahia",
+            "observations": "Solicita café da manhã vegano"
+        },
+        {
+            "id": "6",
+            "name": "Larissa Oliveira Matos",
+            "CPF": "234.987.654-01",
+            "birth": "03.12.1990",
+            "phone": "(31)9765-4321",
+            "car": "GTU9H76",
+            "address": "Rua Saturno, 456, Pampulha, Belo Horizonte, MG",
+            "observations": "Solicita toalhas extras"
+        },
+        {
+            "id": "7",
+            "name": "Diego Martins Farias",
+            "CPF": "765.432.198-22",
+            "birth": "27.07.1998",
+            "phone": "(61)9812-3456",
+            "car": "HLO6G78",
+            "address": "SQN 110, Bloco E, Asa Norte, Brasília, DF",
+            "observations": "Chegará fora do horário padrão"
+        },
+        {
+            "id": "8",
+            "name": "Ana Paula Ribeiro",
+            "CPF": "312.654.987-10",
+            "birth": "14.01.1982",
+            "phone": "(84)9345-6789",
+            "car": "XYZ3A88",
+            "address": "Rua das Palmeiras, 200, Tirol, Natal, RN",
+            "observations": "Alergia a frutos do mar"
+        },
+        {
+            "id": "9",
+            "name": "Tiago Nunes Barros",
+            "CPF": "891.234.765-00",
+            "birth": "08.04.1993",
+            "phone": "(98)9888-7777",
+            "car": "FPL7B22",
+            "address": "Av. São Luís, 543, Centro, São Luís, Maranhão",
+            "observations": "Solicita vaga de garagem coberta"
+        },
+        {
+            "id": "10",
+            "name": "Bruna Carvalho Dias",
+            "CPF": "555.666.777-88",
+            "birth": "05.10.1987",
+            "phone": "(19)9876-5432",
+            "car": "IKJ1P90",
+            "address": "Rua do Café, 345, Cambuí, Campinas, São Paulo",
+            "observations": "Precisa de berço para bebê"
+        },
+        {
+            "id": "11",
+            "name": "Lucas Santana Ribeiro",
+            "CPF": "678.999.123-45",
+            "birth": "18.06.2000",
+            "phone": "(13)9345-8765",
+            "car": "TRS8L20",
+            "address": "Av. Ana Costa, 980, Gonzaga, Santos, SP",
+            "observations": "Gosta de silêncio absoluto"
+        },
+        {
+            "id": "12",
+            "name": "Isabela Costa Lima",
+            "CPF": "421.332.567-10",
+            "birth": "29.02.1996",
+            "phone": "(41)9123-3333",
+            "car": "NBV5W33",
+            "address": "Rua XV de Novembro, 105, Centro, Curitiba, Paraná",
+            "observations": "Solicita travesseiros antialérgicos"
+        },
+        {
+            "id": "13",
+            "name": "Eduardo Gomes Rocha",
+            "CPF": "111.222.333-44",
+            "birth": "17.03.1980",
+            "phone": "(27)9334-2222",
+            "car": "WXD6F72",
+            "address": "Av. Vitória, 700, Praia do Canto, Vitória, ES",
+            "observations": "Viajando a trabalho, precisa de mesa"
+        },
+        {
+            "id": "14",
+            "name": "Camila Duarte Ferreira",
+            "CPF": "999.888.777-66",
+            "birth": "06.07.1994",
+            "phone": "(47)9567-1234",
+            "car": "YUI3Z11",
+            "address": "Rua Blumenau, 234, Centro, Joinville, SC",
+            "observations": "Chegada prevista para 23h"
+        },
+        {
+            "id": "15",
+            "name": "Felipe Andrade Leite",
+            "CPF": "543.210.987-65",
+            "birth": "25.12.1989",
+            "phone": "(82)9456-7890",
+            "car": "QWE2T78",
+            "address": "Rua Arapiraca, 876, Farol, Maceió, Alagoas",
+            "observations": "Tem fobia de elevador"
+        },
+        {
+            "id": "16",
+            "name": "Patrícia Nogueira Lopes",
+            "CPF": "300.200.100-99",
+            "birth": "30.09.1991",
+            "phone": "(95)9211-0001",
+            "car": "LMN4R44",
+            "address": "Rua Boa Vista, 101, Centro, Boa Vista, Roraima",
+            "observations": "Vegetariana, não consome laticínios"
+        },
+        {
+            "id": "17",
+            "name": "João Victor da Silva",
+            "CPF": "909.808.707-60",
+            "birth": "02.02.1983",
+            "phone": "(92)9887-6543",
+            "car": "PKO5D23",
+            "address": "Av. Constantino Nery, 1555, Chapada, Manaus, Amazonas",
+            "observations": "Solicita cama de casal"
+        },
+        {
+            "id": "18",
+            "name": "Nicole Araújo Meireles",
+            "CPF": "747.565.343-22",
+            "birth": "11.06.1999",
+            "phone": "(67)9555-3344",
+            "car": "GHJ7M90",
+            "address": "Rua Mato Grosso, 700, Centro, Campo Grande, MS",
+            "observations": "Vai comemorar aniversário no local"
+        },
+        {
+            "id": "19",
+            "name": "Marcelo Pinto Borges",
+            "CPF": "112.334.556-77",
+            "birth": "16.04.1976",
+            "phone": "(62)9444-2222",
+            "car": "UJY6C88",
+            "address": "Rua 24 de Outubro, 12, Setor Oeste, Goiânia, GO",
+            "observations": "Quarto térreo por dificuldade de locomoção"
+        },
+        {
+            "id": "20",
+            "name": "Tatiane Lemos da Cruz",
+            "CPF": "989.123.654-12",
+            "birth": "13.03.1986",
+            "phone": "(91)9776-8899",
+            "car": "DER3B56",
+            "address": "Travessa Quintino, 300, Batista Campos, Belém, Pará",
+            "observations": "Chega acompanhada de 2 filhos"
+        },
+        {
+            "id": "21",
+            "name": "Gustavo Tavares Pinto",
+            "CPF": "667.455.322-90",
+            "birth": "04.08.1997",
+            "phone": "(63)9654-1111",
+            "car": "MNA2T67",
+            "address": "Av. Teotônio Segurado, 2000, Plano Diretor Sul, Palmas, TO",
+            "observations": "Check-out antecipado previsto"
+        },
+        {
+            "id": "22",
+            "name": "Renata Almeida Bastos",
+            "CPF": "432.345.987-44",
+            "birth": "21.05.1990",
+            "phone": "(53)9222-1122",
+            "car": "ZXC5F77",
+            "address": "Rua General Neto, 321, Centro, Pelotas, RS",
+            "observations": "Solicita ar-condicionado ligado antes da chegada"
+        },
+        {
+            "id": "23",
+            "name": "Vinícius Rocha Matias",
+            "CPF": "102.938.475-61",
+            "birth": "30.01.1984",
+            "phone": "(48)9345-7899",
+            "car": "ASD7V55",
+            "address": "Av. Mauro Ramos, 789, Centro, Florianópolis, SC",
+            "observations": "Vai realizar check-in automático"
+        }
+    ],
+
+    "quarto" : [
+        {
+            "id" : 1,
+            "number" : "201",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 1,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 135
+        },
+        {
+            "id" : 2,
+            "number" : "202",
+            "c.solteiro" : 2,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 3,
+            "number" : "203",
+            "c.solteiro" : 0,
+            "c.auxiliar" : 1,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 4,
+            "number" : "204",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 1,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 330
+        },
+        {
+            "id" : 5,
+            "number" : "205",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 0,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 250
+        },
+        {
+            "id" : 6,
+            "number" : "206",
+            "c.solteiro" : 0,
+            "c.auxiliar" : 1,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 7,
+            "number" : "207",
+            "c.solteiro" : 0,
+            "c.auxiliar" : 1,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 8,
+            "number" : "208",
+            "c.solteiro" : 2,
+            "c.auxiliar" : 1,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : "9",
+            "number" : "209",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 1,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 330
+        },
+        {
+            "id" : 10,
+            "number" : "210",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 1,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 330
+        },
+        {
+            "id" : 11,
+            "number" : "211",
+            "c.solteiro" : 2,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 12,
+            "number" : "212",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : true,
+            "valor" : 86       },
+        {
+            "id" : 13,
+            "number" : "213",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 0,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 135
+        },
+        {
+            "id" : 14,
+            "number" : "214",
+            "c.solteiro" : 3,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 250
+        },
+        {
+            "id" : 15,
+            "number" : "215",
+            "c.solteiro" : 4,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 330
+        },
+        {
+            "id" : 16,
+            "number" : "216",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 0,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 135
+        },
+        {
+            "id" : 17,
+            "number" : "217",
+            "c.solteiro" : 3,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 250
+        },
+        {
+            "id" : 18,
+            "number" : "218",
+            "c.solteiro" : 3,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 250
+        },
+        {
+            "id" : 19,
+            "number" : "219",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 0,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 20,
+            "number" : "220",
+            "c.solteiro" : 4,
+            "c.auxiliar" : 0,
+            "c.casal" : 0,
+            "vent." : false,
+            "valor" : 330
+        },
+        {
+            "id" : 21,
+            "number" : "221",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 0,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 22,
+            "number" : "222",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 0,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 205
+        },
+        {
+            "id" : 23,
+            "number" : "223",
+            "c.solteiro" : 1,
+            "c.auxiliar" : 1,
+            "c.casal" : 1,
+            "vent." : false,
+            "valor" : 330
+        }
+    ]
+}
