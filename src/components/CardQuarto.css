@@ -1,32 +1,79 @@
-.card{
-    width: 9.5rem; 
-    height: 8rem;
-    border-radius: 1rem;
-    overflow: hidden;
+.card-ocupado-info {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: linear-gradient(90deg, #b31218 80%, #6a0d13 100%);
+  color: #fff;
+  font-size: 1.35rem;
+  font-weight: bold;
+  text-align: center;
+  padding: 1.3rem 0.7rem 1.3rem 0.7rem;
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+  border-top: 5px solid #fff;
+  z-index: 9999;
+  box-shadow: 0 -12px 32px rgba(0,0,0,0.45);
+  letter-spacing: 1.5px;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.35);
+  animation: ocupadoFadeIn 0.7s ease;
+}
+
+@keyframes ocupadoFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+  position: relative;
+}
+.card {
+  width: 10rem;
+  height: 8.5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.card:focus-visible {
+  border: 2px solid #CE2C32;
+  box-shadow: 0 0 0 3px rgba(206, 44, 50, 0.35);
+}
+
+.card.selecionado {
+  border: 2px solid #CD181F;
+  box-shadow: 0 0 0 4px rgba(205, 24, 31, 0.2);
 }
 
 .header-card {
-    background: #CE2C32;
-    border-top: 20px;
-    padding-left: 14px;
-    overflow: hidden;
-
-    font-weight: 600;
-    font-size: 20px;
-
+  background-color: #CE2C32;
+  color: white;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
 }
 
 .body {
-    background: #ffffff;
-    color: black;
-    min-height: 89px;
-    max-height: 89px;
-    border-bottom: 20px;
-    padding-left: 14px;
-    padding-top: 10px;
-    overflow: hidden;
-
-    font-weight: 600;
-    font-size: 16px;
+  background-color: #ffffff;
+  color: #000;
+  height: calc(100% - 48px);
+  padding: 0.8rem 1rem 2.5rem 1rem; /* padding-bottom aumentado para não cobrir o texto da borda */
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-
