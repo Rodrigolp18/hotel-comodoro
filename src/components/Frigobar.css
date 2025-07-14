@@ -1,0 +1,74 @@
+.frigobar {
+    width: 300px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+}
+
+.frigobar-tabela {
+    max-height: 180px;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    margin-top: 0.5rem;
+}
+
+.frigobar h3 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.frigobar-pesquisa {
+    display: flex;
+    align-items: center;
+    margin: 0.5rem 0;
+    position: relative;
+}
+
+.frigobar-pesquisa input {
+    width: 100%;
+    padding: 0.4rem 2rem 0.4rem 0.5rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.icone-busca {
+    position: absolute;
+    right: 0.6rem;
+    pointer-events: none;
+}
+
+.frigobar-cabecalho,
+.frigobar-item {
+    display: grid;
+    grid-template-columns: 80px 1fr 70px;
+    padding: 0.3rem 0.5rem;
+    align-items: center;
+}
+
+.frigobar-cabecalho {
+    background: #d90000;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px 10px 0 0;
+}
+
+.frigobar-item {
+    border-top: 1px solid #eee;
+}
+
+.frigobar-quantidade {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+}
+
+.frigobar-quantidade button {
+    padding: 5px;
+    background: none;
+    border: none;
+    font-size: 1rem;
+    cursor: pointer;
+    color: black;
+}
