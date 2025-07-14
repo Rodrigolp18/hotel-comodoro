@@ -1,95 +1,252 @@
+.reserva-header__data {
+  font-weight: bold;
+  flex: 1;
+  text-align: left;
+}
+
+.reserva-header__status {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.reserva-wrapper {
+  width: 1069px;
+  margin: 10px auto;
+  font-family: Arial, sans-serif;
+}
+
+.reserva-header {
+  height: 16px;
+  background-color: #c40000;
+  color: white;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  padding: 16px 24px;
+  display: flex;
+  position: relative;
+}
+
+.reserva-container-flex {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+}
+
 .reserva-container {
   background-color: #d9d9d9;
   padding: 32px;
-  max-width: 1069px;
-  margin: 0 auto;
+  border-radius: 8px 8px;
+}
+
+.reserva-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.5s ease;
+}
+
+.reserva-collapse.aberto {
+  max-height: 1500px;
+}
+
+.reserva-com-frigobar {
+  display: flex;
+  gap: 2rem;
+  align-items: flex-start;
+  padding: 2rem 8rem 2rem 8rem;
   border-radius: 8px;
-  font-family: Arial, sans-serif;
+}
+
+.reserva-formulario {
+  flex: 1;
+}
+
+.frigobar {
+  width: 300px;
+  flex-shrink: 0;
+}
+
+.reserva-total {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #444;
 }
 
 .reserva-row {
   display: flex;
-  gap: 12px;
-  margin-bottom: 12px;
+  gap: 16px;
+  margin-bottom: 16px;
   flex-wrap: wrap;
 }
 
-.reserva-label {
+.reserva-valor-diaria {
+  width: 150px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  font-size: 14px;
 }
 
-.reserva-quarto {
+.reserva-label,
+.reserva-quarto,
+.reserva-cupom,
+.reserva-data-entrada,
+.reserva-data-saida,
+.reserva-checkin,
+.reserva-checkout {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.reserva-container input {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 9999px;
+  background-color: white;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .reserva-quarto input {
-  width: 300px;
-  padding: 8px 12px;
+  width: 290px;
+  background-color: white;
+  color: #555;
+  pointer-events: none;
+}
+
+.reserva-valor-diaria input {
+  background-color: #ffffff;
+  color: #555;
+  pointer-events: none;
+}
+
+.reserva-container button {
+  padding: 10px 16px;
   border: none;
-  border-radius: 20px;
-  background-color: #eeeeee;
+  border-radius: 9999px;
+  background-color: #c40000;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
   font-size: 14px;
 }
 
 .reserva-botao-selecionar {
-  align-self: flex-end;
-  padding: 8px 16px;
-  background-color: #c40000;
-  color: white;
-  font-weight: bold;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.reserva-valor-diaria {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.reserva-valor-diaria input {
-  width: 180px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
-  font-size: 14px;
-  background-color: white;
-}
-
-.reserva-cupom {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
+  margin-top: auto;
+  height: 38px;
+  white-space: nowrap;
 }
 
 .reserva-cupom-row {
   display: flex;
-  gap: 8px;
-  align-items: center;
+  gap: 12px;
+  align-items: flex-end;
 }
 
 .reserva-cupom input {
-  width: 180px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
+  width: 150px;
+  padding: 10px;
+  border-radius: 9999px;
   font-size: 14px;
   background-color: white;
 }
 
 .reserva-cupom button {
-  padding: 8px 16px;
+  padding: 10px 15px 10px 15px;
   background-color: #c40000;
   color: white;
   font-weight: bold;
   border: none;
-  border-radius: 20px;
+  border-radius: 9999px;
   cursor: pointer;
+}
+
+.reserva-pagamento {
+  width: 410px;
+  margin-bottom: 16px;
+}
+
+.reserva-pagamento details summary {
+  cursor: pointer;
+  padding: 10px 16px;
+  background-color: white;
+  border-radius: 9999px;
+}
+
+.reserva-pagamento ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 8px;
+}
+
+.reserva-data-entrada input,
+.reserva-data-saida input {
+  width: 200px;
+}
+
+.reserva-checkin input,
+.reserva-checkout input {
+  width: 200px;
+}
+
+.reserva-botoes {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.reserva-botoes button {
+  padding: 10px 24px;
+}
+
+.select-forma-pagamento {
+  padding: 10px 16px;
+  border-radius: 9999px;
+  background-color: white;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 6px;
+  border: 1px solid #ccc;
+}
+
+.nova-reserva-container {
+  display: flex;
+  justify-content: flex-end;
+  margin: 20px 0;
+}
+
+.btn-nova-reserva {
+  padding: 10px 20px;
+  background: #c40000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.seta {
+  transition: transform 0.3s ease;
+}
+
+.seta.aberta {
+  transform: rotate(180deg);
+}
+
+.reserva-nao-editavel {
+  font-size: 0.8rem;
+  color: #666;
 }
 
 .reserva-desconto {
@@ -98,86 +255,8 @@
   color: green;
 }
 
-.reserva-pagamento {
-  width: 400px;
-  margin-bottom: 16px;
-}
-
-.reserva-pagamento details summary {
-  cursor: pointer;
-  padding: 8px 12px;
-  background-color: white;
-  border-radius: 20px;
-  font-weight: normal;
-}
-
-.reserva-pagamento ul {
-  list-style: none;
-  padding: 0;
-  margin: 8px 0 0 0;
-}
-
-.reserva-pagamento li button {
-  padding: 8px;
-  width: 100%;
-  text-align: left;
-  background-color: #f9f9f9;
-  border: none;
-  cursor: pointer;
-}
-
-.reserva-pagamento li button:hover {
-  background-color: #dddddd;
-}
-
-.reserva-data-entrada,
-.reserva-data-saida,
-.reserva-checkin,
-.reserva-checkout {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-
-.reserva-data-entrada input,
-.reserva-data-saida input {
-  width: 220px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
-  background-color: white;
-  font-size: 14px;
-}
-
-.reserva-checkin input,
-.reserva-checkout input {
-  width: 120px;
-  padding: 8px 12px;
-  border: none;
-  border-radius: 20px;
-  background-color: white;
-  font-size: 14px;
-}
-
-.reserva-botoes {
-  display: flex;
-  justify-content: flex-end;
-  gap: 16px;
-  margin-top: 16px;
-}
-
-.reserva-botoes button {
-  background-color: #c40000;
-  color: white;
-  padding: 10px 20px;
-  border-radius: 20px;
-  border: none;
-  font-weight: bold;
-  cursor: pointer;
-}
-
 .required::after {
-  content: "*";
+  content: '*';
   color: red;
   margin-left: 4px;
   font-weight: bold;
