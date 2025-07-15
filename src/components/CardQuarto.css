@@ -1,3 +1,40 @@
+.card {
+  position: relative;
+  width: 10rem;
+  height: 8.5rem;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+.header-card {
+  background-color: #CE2C32;
+  color: white;
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  text-align: center;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.body {
+  background-color: #ffffff;
+  color: #000;
+  height: calc(100% - 48px);
+  padding: 0.8rem 1rem 2.5rem 1rem;
+  font-weight: 500;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
 .card-ocupado-info {
   position: absolute;
   left: 0;
@@ -19,61 +56,20 @@
   animation: ocupadoFadeIn 0.7s ease;
 }
 
-@keyframes ocupadoFadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.card {
-  position: relative;
-}
-.card {
-  width: 10rem;
-  height: 8.5rem;
-  border-radius: 1rem;
-  overflow: hidden;
-  border: 2px solid transparent;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, border 0.2s ease-in-out;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  outline: none;
-}
-
 .card:hover {
   transform: scale(1.03);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
-
 .card:focus-visible {
   border: 2px solid #CE2C32;
   box-shadow: 0 0 0 3px rgba(206, 44, 50, 0.35);
 }
-
 .card.selecionado {
   border: 2px solid #CD181F;
   box-shadow: 0 0 0 4px rgba(205, 24, 31, 0.2);
 }
 
-.header-card {
-  background-color: #CE2C32;
-  color: white;
-  padding: 0.6rem 1rem;
-  font-weight: 600;
-  font-size: 1.1rem;
-  text-align: center;
-  border-top-left-radius: 1rem;
-  border-top-right-radius: 1rem;
-}
-
-.body {
-  background-color: #ffffff;
-  color: #000;
-  height: calc(100% - 48px);
-  padding: 0.8rem 1rem 2.5rem 1rem; /* padding-bottom aumentado para não cobrir o texto da borda */
-  font-weight: 500;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
+@keyframes ocupadoFadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }

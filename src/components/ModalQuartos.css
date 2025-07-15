@@ -33,6 +33,14 @@
   border-bottom: 1px solid #ccc;
 }
 
+.body-modal {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+  overflow-y: auto;
+}
+
 .title-modal {
   font-weight: 600;
   font-size: 1.1rem;
@@ -70,12 +78,4 @@
   background: #999;
   cursor: not-allowed;
   box-shadow: none;
-}
-
-.body-modal {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1rem;
-  padding: 1.5rem;
-  overflow-y: auto;
 }

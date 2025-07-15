@@ -1,6 +1,8 @@
 import './ModalQuartos.css';
 import CardQuarto from './CardQuarto';
 import { useState, useEffect } from 'react';
+import { periodoSobrepoe } from '../utils/reservaUtils';
+import { quartoEstaOcupado } from '../utils/reservaUtils';
 
 const gerarDescricao = (quarto) => {
   const partes = [];
@@ -40,6 +42,12 @@ export default function ModalQuartos({ closeModal, onSelectQuarto, reservasSalva
       onSelectQuarto(quartoSelecionado);
     }
   };
+
+  const quartosOcupados = reservasSalvas
+    .filter(r => {
+      if (!dataEntrada || !dataSaida) return false;
+      return quartoEstaOcupado([r], r.quartoSelecionado, dataEntrada, dataSaida);
+    });
 
   return (
     <div className="modal-overlay">

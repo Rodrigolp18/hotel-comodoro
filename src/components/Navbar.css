@@ -12,6 +12,18 @@
   z-index: 1000;
 }
 
+.navbar__logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navbar__botoes {
+  display: flex;
+  gap: 10px;
+  margin-right: 50px;
+}
+
 .navbar__titulo {
   position: absolute;
   left: 50%;
@@ -22,20 +34,8 @@
   color: black;
 }
 
-.navbar__logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
 .logo {
   height: 40px;
-}
-
-.navbar__botoes {
-  display: flex;
-  gap: 10px;
-  margin-right: 50px;
 }
 
 .btn-vermelho {
