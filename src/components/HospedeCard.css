@@ -1,0 +1,76 @@
+.hospede-header {
+    height: 16px;
+    display: flex;
+    padding: 16px 24px;
+    cursor: pointer;
+    position: relative;
+    align-items: center;
+}
+
+.hospede-formulario-duas-colunas {
+    display: flex;
+    gap: 2rem;
+}
+
+.hospede-coluna-esquerda,
+.hospede-coluna-direita {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.hospede-header__name {
+    font-weight: bold;
+    flex: 1;
+    text-align: left;
+}
+
+.hospede-header__cpf {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    z-index: 1;
+}
+
+.hospede-header__btn {
+    width: 150px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+    color: #b31218;
+    border: 1px solid #b31218;
+    border-radius: 999px;
+    padding: 0.5rem 0rem 0.5rem 0rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.hospede-header__arrow {
+    margin-left: 1rem;
+    transition: transform 0.3s;
+    display: inline-block;
+}
+
+.hospede-header__arrow.aberto {
+    transform: rotate(180deg);
+}
+
+.hospede-editar-btn {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0.8rem;
+}
+
+.hospede-observacoes {
+    width: 700px;
+    height: 120px;
+    border-radius: 16px !important;
+    padding: 8px 16px;
+}
