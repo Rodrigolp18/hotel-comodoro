@@ -150,6 +150,27 @@ const Reservas = ({ reservasSalvas = [], onCancelarCriacao, clienteId }) => {
         <div className="reserva-collapse aberto">
           <div className="reserva-container reserva-com-frigobar">
             <div className="reserva-formulario">
+              {/* 1. Data de entrada e saída no topo */}
+              <div className="reserva-row">
+                <div className="reserva-data-entrada">
+                  <label className="required">Data de Entrada</label>
+                  {campo('dataEntrada', 'date')}
+                </div>
+                <div className="reserva-checkin">
+                  <label>Check-in</label>
+                  {campo('horaEntrada', 'time')}
+                </div>
+                <div className="reserva-data-saida">
+                  <label className="required">Data de Saída</label>
+                  {campo('dataSaida', 'date')}
+                </div>
+                <div className="reserva-checkout">
+                  <label>Check-out</label>
+                  {campo('horaSaida', 'time')}
+                </div>
+              </div>
+
+              {/* 2. Seleção de quarto abaixo das datas */}
               <div className="reserva-row">
                 <div className="reserva-quarto">
                   <label className="required">Quarto</label>
@@ -200,28 +221,6 @@ const Reservas = ({ reservasSalvas = [], onCancelarCriacao, clienteId }) => {
                   editando
                   onSelecionar={(v) => atualizar('formaPagamento', v)}
                 />
-              </div>
-
-              <div className="reserva-row">
-                <div className="reserva-data-entrada">
-                  <label className="required">Data de Entrada</label>
-                  {campo('dataEntrada', 'date')}
-                </div>
-                <div className="reserva-checkin">
-                  <label>Check-in</label>
-                  {campo('horaEntrada', 'time')}
-                </div>
-              </div>
-
-              <div className="reserva-row">
-                <div className="reserva-data-saida">
-                  <label className="required">Data de Saída</label>
-                  {campo('dataSaida', 'date')}
-                </div>
-                <div className="reserva-checkout">
-                  <label>Check-out</label>
-                  {campo('horaSaida', 'time')}
-                </div>
               </div>
 
               <div className="reserva-botoes">
