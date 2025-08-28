@@ -58,7 +58,8 @@ const ReservaSalva = ({ res, aberto, alternarAberto, salvarAlteracao, reservasSa
         setModalAberto(false);
     };
     const hojeISO = getHojeISO();
-    const isEditavel = res.dataSaida >= hojeISO;
+    // Se não houver dataSaida, permitimos edição (período aberto). Caso haja, só edita se dataSaida >= hoje
+    const isEditavel = !res.dataSaida || res.dataSaida >= hojeISO;
 
     const atualizar = (campo, valor) => {
         const nova = { ...reservaEditada, [campo]: valor };
@@ -175,7 +176,7 @@ const ReservaSalva = ({ res, aberto, alternarAberto, salvarAlteracao, reservasSa
 
                         <div className="reserva-row">
                             <div className="reserva-data-saida">
-                                <label className="required">Data de Saída</label>
+                                <label>Data de Saída (opcional)</label>
                                 {campo('dataSaida', 'date')}
                             </div>
                             <div className="reserva-checkout">

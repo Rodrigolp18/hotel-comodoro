@@ -2,10 +2,11 @@ import { useState } from 'react';
 import './Frigobar.css';
 
 const itensDisponiveis = [
-  { id: 1, nome: 'Água sem gás', valor: 5.0 },
-  { id: 2, nome: 'Refrigerante', valor: 10.0 },
-  { id: 3, nome: 'Suco', valor: 7.0 },
-  { id: 4, nome: 'Água de coco', valor: 5.0 },
+  { id: 1, nome: 'Água sem gás', valor: 4.5 },
+  { id: 2, nome: 'Água com gás', valor: 5.0 },
+  { id: 3, nome: 'Refrigerante', valor: 6.0 },
+  { id: 4, nome: 'SKOL lata', valor: 7.0 },
+  { id: 5, nome: 'Achocolatado', valor: 5.0 },
 ];
 
 const Frigobar = ({ consumo = [], setConsumo }) => {

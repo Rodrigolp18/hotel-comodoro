@@ -81,7 +81,8 @@ const Reservas = ({ reservasSalvas = [], onCancelarCriacao, clienteId }) => {
       dataSaida,
     } = reserva;
 
-    if (!quartoSelecionado || !valorDiaria || !formaPagamento || !dataEntrada || !dataSaida) {
+    // dataSaida não é obrigatória ao criar uma reserva
+    if (!quartoSelecionado || !valorDiaria || !formaPagamento || !dataEntrada) {
       alert('Preencha todos os campos obrigatórios!');
       return;
     }
@@ -161,7 +162,7 @@ const Reservas = ({ reservasSalvas = [], onCancelarCriacao, clienteId }) => {
                   {campo('horaEntrada', 'time')}
                 </div>
                 <div className="reserva-data-saida">
-                  <label className="required">Data de Saída</label>
+                  <label>Data de Saída (opcional)</label>
                   {campo('dataSaida', 'date')}
                 </div>
                 <div className="reserva-checkout">
