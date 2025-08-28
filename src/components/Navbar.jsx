@@ -13,7 +13,7 @@ export default function Navbar({ titulo = "Gerenciar Reservas", mostrarInicio = 
         {mostrarInicio && (
           <button className="btn-vermelho" onClick={() => navigate('/cadastrar-hospedes')}>Início</button>
         )}
-        <button className="btn-vermelho">Quartos</button>
+        <button className="btn-vermelho" onClick={() => navigate('/quartos-ocupados')}>Quartos</button>
       </div>
     </nav>
   );

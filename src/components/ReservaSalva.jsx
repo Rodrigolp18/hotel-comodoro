@@ -37,7 +37,7 @@ const SeletorPagamento = ({ valor, editando, onSelecionar }) =>
         <Campo valor={valor} readOnly />
     );
 
-const ReservaSalva = ({ res, aberto, alternarAberto, salvarAlteracao, reservasSalvas }) => {
+const ReservaSalva = ({ res, aberto, alternarAberto, salvarAlteracao, reservasSalvas, clientes = [] }) => {
     const [editando, setEditando] = useState(false);
     const [reservaEditada, setReservaEditada] = useState(res);
     const [modalAberto, setModalAberto] = useState(false);
@@ -93,11 +93,15 @@ const ReservaSalva = ({ res, aberto, alternarAberto, salvarAlteracao, reservasSa
 
     return (
         <div className="reserva-wrapper">
-            <div className="reserva-header" onClick={() => alternarAberto(res.id)}>
-                <span className="reserva-header__data">Data: {formatarData(res.dataEntrada)}</span>
-                <strong className="reserva-header__status">{isEditavel ? 'Reserva Ativa' : 'Reserva Fechada'}</strong>
-                <span className={`seta${aberto ? ' aberta' : ''}`}>&#x25BC;</span>
-            </div>
+                        <div className="reserva-header" onClick={() => alternarAberto(res.id)}>
+                                <span className="reserva-header__data">Data: {formatarData(res.dataEntrada)}</span>
+                                <strong className="reserva-header__status">{isEditavel ? 'Reserva Ativa' : 'Reserva Fechada'}</strong>
+                                <div style={{ marginLeft: 'auto', textAlign: 'right' }}>
+                                    <div style={{ fontWeight: '600' }}>{clientes.find(c => c.id === res.clienteId)?.name || ''}</div>
+                                    <div style={{ fontSize: '0.8rem', color: '#666' }}>{res.clienteId || ''}</div>
+                                </div>
+                                <span className={`seta${aberto ? ' aberta' : ''}`}>&#x25BC;</span>
+                        </div>
 
             <div className={`reserva-collapse${aberto ? ' aberto' : ''}`}>
                 <div className="reserva-container reserva-com-frigobar">

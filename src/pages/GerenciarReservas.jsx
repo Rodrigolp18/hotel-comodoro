@@ -20,11 +20,15 @@ export default function GerenciarReservas() {
     const cliente = clientes.find(c => c.id === clienteId);
 
     useEffect(() => {
-        fetch('/src/mockdata/db.json')
-          .then(res => res.json())
-          .then(data => setClientes(data.cliente || []));
+            // Carrega clientes do Realtime Database (substitui uso de mock local)
+            const clientesRef = ref(db, 'cliente');
+            const unsubC = onValue(clientesRef, (snapC) => {
+              const dataC = snapC.val();
+              const listaC = dataC ? Object.entries(dataC).map(([id, obj]) => ({ id, ...obj })) : [];
+              setClientes(listaC);
+            });
 
-        const unsub = onValue(ref(db, 'reservas'), (snap) => {
+            const unsub = onValue(ref(db, 'reservas'), (snap) => {
             const data = snap.val();
             if (data) {
                 let lista = Object.entries(data).map(([id, r]) => ({ id, ...r }));
@@ -36,7 +40,10 @@ export default function GerenciarReservas() {
                 setReservasSalvas([]);
             }
         });
-        return () => unsub();
+            return () => {
+              unsub();
+              unsubC();
+            };
     }, [clienteId]);
 
     const alternarAberto = (id) => setAbertos((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -79,6 +86,7 @@ export default function GerenciarReservas() {
                                   alternarAberto={alternarAberto}
                                   salvarAlteracao={salvarAlteracao}
                                   reservasSalvas={reservasSalvas}
+                                  clientes={clientes}
                               />
                           ))}
                       </div>
