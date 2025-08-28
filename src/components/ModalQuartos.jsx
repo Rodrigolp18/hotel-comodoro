@@ -1,6 +1,8 @@
 import './ModalQuartos.css';
 import CardQuarto from './CardQuarto';
 import { useState, useEffect } from 'react';
+import { db } from '../firebase/firebaseconfig';
+import { ref, onValue } from 'firebase/database';
 import { quartoEstaOcupado } from '../utils/reservaUtils';
 
 export default function ModalQuartos({ closeModal, onSelectQuarto, reservasSalvas = [], dataEntrada, dataSaida }) {
@@ -8,23 +10,20 @@ export default function ModalQuartos({ closeModal, onSelectQuarto, reservasSalva
   const [quartoSelecionado, setQuartoSelecionado] = useState(null);
 
   useEffect(() => {
-    async function carregarQuartos() {
-      try {
-        const res = await fetch('http://localhost:3000/quarto');
-        const data = await res.json();
-        const quartosFormatados = data.map((quarto) => ({
-          numero: quarto.number,
-          descricao: gerarDescricao(quarto),
-          valor: quarto.valor,
-          raw: quarto,
-        }));
-        setQuartos(quartosFormatados);
-      } catch (err) {
-        console.error('Erro ao carregar quartos:', err);
-      }
-    }
-
-    carregarQuartos();
+    const quartosRef = ref(db, 'quarto');
+    const unsubscribe = onValue(quartosRef, (snapshot) => {
+      const data = snapshot.val();
+      const lista = data
+        ? Object.entries(data).map(([id, obj]) => ({
+            numero: obj.number,
+            descricao: gerarDescricao(obj),
+            valor: obj.valor,
+            raw: obj,
+          }))
+        : [];
+      setQuartos(lista);
+    });
+    return () => unsubscribe();
   }, []);
 
   const salvarSelecao = () => {
@@ -115,9 +114,9 @@ export default function ModalQuartos({ closeModal, onSelectQuarto, reservasSalva
 
 const gerarDescricao = (quarto) => {
   const partes = [];
-  if (quarto['c.casal']) partes.push(`${quarto['c.casal']} Casal`);
-  if (quarto['c.solteiro']) partes.push(`${quarto['c.solteiro']} Solteiro`);
-  if (quarto['c.auxiliar']) partes.push(`${quarto['c.auxiliar']} Auxiliar`);
-  if (quarto['vent.']) partes.push('Ventilador');
+  if (quarto['c_casal']) partes.push(`${quarto['c_casal']} Casal`);
+  if (quarto['c_solteiro']) partes.push(`${quarto['c_solteiro']} Solteiro`);
+  if (quarto['c_auxiliar']) partes.push(`${quarto['c_auxiliar']} Auxiliar`);
+  if (quarto['vent_']) partes.push('Ventilador');
   return partes.join(', ');
 };

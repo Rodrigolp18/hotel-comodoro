@@ -2,6 +2,8 @@ import Navbar from '../components/Navbar';
 import HospedeCard from '../components/HospedeCard';
 import { useState, useEffect } from 'react';
 import './GerenciarReservas.css';
+import { ref, onValue, push } from 'firebase/database';
+import { db } from '../firebase/firebaseconfig'; // Usa a instância correta do Database
 
 export default function CadastrarHospedes() {
   const [hospedes, setHospedes] = useState([]);
@@ -9,9 +11,14 @@ export default function CadastrarHospedes() {
   const [busca, setBusca] = useState('');
 
   useEffect(() => {
-    fetch('/src/mockdata/db.json')
-      .then(res => res.json())
-      .then(data => setHospedes(data.cliente || []));
+    const hospedesRef = ref(db, 'cliente');
+    const unsubscribe = onValue(hospedesRef, (snapshot) => {
+      const data = snapshot.val();
+      // Converte objeto para array
+      const lista = data ? Object.entries(data).map(([id, obj]) => ({ ...obj, id })) : [];
+  setHospedes(lista);
+    });
+    return () => unsubscribe();
   }, []);
 
   const handleChange = (index, campo, valor) => {
@@ -22,12 +29,11 @@ export default function CadastrarHospedes() {
     });
   };
 
-  // Função para adicionar novo hóspede
-  const handleAddHospede = (novoHospede) => {
-    setHospedes(hospedes => [
-      { ...novoHospede, id: Date.now().toString() },
-      ...hospedes
-    ]);
+  // Função para adicionar novo hóspede no Realtime Database
+  const handleAddHospede = async (novoHospede) => {
+    const hospedesRef = ref(db, 'cliente');
+    const novoRef = push(hospedesRef);
+    await novoRef.set(novoHospede);
     setCriandoHospede(false);
   };
 

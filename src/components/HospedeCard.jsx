@@ -1,6 +1,8 @@
 import './HospedeCard.css';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { db } from '../firebase/firebaseconfig';
+import { ref, push, set, update } from 'firebase/database';
 
 export default function HospedeCard({ hospede, onChange, initialOpen = false, initialEdit = false, cadastro = false, onClose }) {
   const [aberto, setAberto] = useState(initialOpen);
@@ -29,22 +31,16 @@ export default function HospedeCard({ hospede, onChange, initialOpen = false, in
     }
     try {
       if (cadastro) {
-        // Cadastro: POST para criar novo hóspede
-        const response = await fetch('http://localhost:3000/cliente/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...localHospede, id: Date.now().toString() })
-        });
-        if (!response.ok) throw new Error('Erro ao cadastrar!');
+        // Cadastro: cria novo hóspede no Firebase
+        const hospedesRef = ref(db, 'cliente');
+        const novoRef = push(hospedesRef);
+        await set(novoRef, localHospede);
         alert('Hóspede cadastrado com sucesso!');
         if (onClose) onClose();
       } else {
-        // Edição: PATCH para atualizar hóspede existente
-        await fetch(`http://localhost:3000/cliente/${localHospede.id}`, {
-          method: 'PATCH',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(localHospede)
-        });
+        // Edição: atualiza hóspede existente no Firebase
+        const hospedeRef = ref(db, `cliente/${localHospede.id}`);
+        await update(hospedeRef, localHospede);
         alert('Dados salvos com sucesso!');
       }
       setEditando(false);
