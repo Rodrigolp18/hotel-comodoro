@@ -2,13 +2,15 @@ import Navbar from '../components/Navbar';
 import HospedeCard from '../components/HospedeCard';
 import { useState, useEffect } from 'react';
 import './GerenciarReservas.css';
-import { ref, onValue, push } from 'firebase/database';
+import { ref, onValue, push, remove } from 'firebase/database';
 import { db } from '../firebase/firebaseconfig'; // Usa a instância correta do Database
 
 export default function CadastrarHospedes() {
   const [hospedes, setHospedes] = useState([]);
   const [criandoHospede, setCriandoHospede] = useState(false);
   const [busca, setBusca] = useState('');
+  const [deletando, setDeletando] = useState(false);
+  const [selecionados, setSelecionados] = useState([]);
 
   useEffect(() => {
     const hospedesRef = ref(db, 'cliente');
@@ -45,6 +47,43 @@ export default function CadastrarHospedes() {
     });
   };
 
+  const toggleSelecionado = (id) => {
+    setSelecionados(curr => {
+      if (curr.includes(id)) return curr.filter(x => x !== id);
+      return [...curr, id];
+    });
+  };
+
+  const handleToggleDeletar = async () => {
+    if (!deletando) {
+      // entrar no modo de seleção para exclusão
+      setSelecionados([]);
+      setDeletando(true);
+      return;
+    }
+
+    // Se já está em modo deletar, o botão age como 'Confirmar exclusão'
+    if (selecionados.length === 0) {
+      // sem selecionados -> apenas sai do modo de exclusão
+      setDeletando(false);
+      setSelecionados([]);
+      return;
+    }
+
+    const ok = window.confirm(`Deseja realmente excluir ${selecionados.length} hóspede(s)?`);
+    if (!ok) return;
+
+    try {
+      await Promise.all(selecionados.map(id => remove(ref(db, `cliente/${id}`))));
+      alert('Exclusão realizada com sucesso.');
+    } catch (err) {
+      console.error(err);
+      alert('Erro ao excluir hóspedes.');
+    }
+    setSelecionados([]);
+    setDeletando(false);
+  };
+
   function normalizar(str) {
     return (str || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
   }
@@ -76,10 +115,13 @@ export default function CadastrarHospedes() {
             />
             <span className="icone-busca">🔍</span>
           </div>
+          <div style={{ marginLeft: '1rem' }}>
+            <button className="btn-nova-reserva" onClick={handleToggleDeletar}>{deletando ? 'Confirmar exclusão' : 'Excluir cadastro de hospede'}</button>
+          </div>
         </div>
         {criandoHospede && (
           <HospedeCard
-            hospede={{ name: '', CPF: '', birth: '', phone: '', car: '', address: '', observations: '' }}
+            hospede={{ name: '', CPF: '', phone: '', car: '', address: '', observations: '' }}
             onChange={() => {}}
             onSave={novoHospede => handleAddHospede(novoHospede)}
             onClose={() => setCriandoHospede(false)}
@@ -88,12 +130,16 @@ export default function CadastrarHospedes() {
             cadastro={true}
           />
         )}
-        {hospedesFiltrados.map((hospede, idx) => (
+    {hospedesFiltrados.map((hospede, idx) => (
           <HospedeCard
             key={hospede.id}
             hospede={hospede}
             onChange={(campo, valor) => handleChange(idx, campo, valor)}
             onSave={hospedeAtualizado => handleSave(idx, hospedeAtualizado)}
+      mostrarBotaoEditar={true}
+      deletando={deletando}
+      selecionado={selecionados.includes(hospede.id)}
+      onToggleSelecionado={() => toggleSelecionado(hospede.id)}
           />
         ))}
       </div>

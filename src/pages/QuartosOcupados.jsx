@@ -83,41 +83,43 @@ export default function QuartosOcupados() {
 
         <div className="body-modal" style={{ padding: '1.5rem' }}>
           {quartosComStatus.length > 0 ? (
-            quartosComStatus.map((quarto) => (
-              <div key={quarto.numero} style={{ position: 'relative' }}>
-                <CardQuarto
-                  numero={quarto.numero}
-                  descricao={quarto.ocupado ? quarto.clienteNome : quarto.descricao}
-                  selecionado={false}
-                  onClick={undefined}
-                  tabIndex={quarto.ocupado ? -1 : 0}
-                  aria-disabled={quarto.ocupado}
-                  style={quarto.ocupado ? { opacity: 0.5, pointerEvents: 'none' } : {}}
-                />
-                {quarto.ocupado && (
-                  <div
-                    style={{
-                      position: 'absolute',
-                      top: 0,
-                      left: 0,
-                      width: '100%',
-                      height: '100%',
-                      background: 'rgba(205,24,31,0.7)',
-                      color: '#fff',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontWeight: 'bold',
-                      fontSize: '1.1rem',
-                      borderRadius: '12px',
-                      pointerEvents: 'none',
-                    }}
-                  >
-                    Ocupado
-                  </div>
-                )}
-              </div>
-            ))
+            <div className="quartos-grid">
+              {quartosComStatus.map((quarto) => (
+                <div key={quarto.numero} style={{ position: 'relative' }}>
+                  <CardQuarto
+                    numero={quarto.numero}
+                    descricao={quarto.ocupado ? quarto.clienteNome : quarto.descricao}
+                    selecionado={false}
+                    onClick={undefined}
+                    tabIndex={quarto.ocupado ? -1 : 0}
+                    aria-disabled={quarto.ocupado}
+                    style={quarto.ocupado ? { opacity: 0.5, pointerEvents: 'none' } : {}}
+                  />
+                  {quarto.ocupado && (
+                    <div
+                      style={{
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        background: 'rgba(205,24,31,0.7)',
+                        color: '#fff',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        fontWeight: 'bold',
+                        fontSize: '1.1rem',
+                        borderRadius: '12px',
+                        pointerEvents: 'none',
+                      }}
+                    >
+                      Ocupado
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           ) : (
             <p>Carregando quartos...</p>
           )}

@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { db } from '../firebase/firebaseconfig';
 import { ref, push, set, update } from 'firebase/database';
 
-export default function HospedeCard({ hospede, onChange, initialOpen = false, initialEdit = false, cadastro = false, onClose }) {
+export default function HospedeCard({ hospede, onChange, initialOpen = false, initialEdit = false, cadastro = false, onClose, mostrarBotaoEditar = false, deletando = false, selecionado = false, onToggleSelecionado }) {
   const [aberto, setAberto] = useState(initialOpen);
   const [editando, setEditando] = useState(initialEdit);
   const [localHospede, setLocalHospede] = useState(hospede);
@@ -15,12 +15,21 @@ export default function HospedeCard({ hospede, onChange, initialOpen = false, in
     onChange?.(campo, valor);
   };
 
+  // Formata CPF como 000.000.000-00 — aceita entrada já formatada ou apenas dígitos
+  const formatCPF = (value) => {
+    const digits = String(value || '').replace(/\D/g, '').slice(0, 11);
+    if (!digits) return '';
+    if (digits.length <= 3) return digits;
+    if (digits.length <= 6) return `${digits.slice(0,3)}.${digits.slice(3)}`;
+    if (digits.length <= 9) return `${digits.slice(0,3)}.${digits.slice(3,6)}.${digits.slice(6)}`;
+    return `${digits.slice(0,3)}.${digits.slice(3,6)}.${digits.slice(6,9)}-${digits.slice(9)}`;
+  };
+
   const handleSave = async () => {
     // Validação dos campos obrigatórios
     const obrigatorios = [
       { campo: 'name', label: 'Nome' },
       { campo: 'CPF', label: 'CPF' },
-      { campo: 'birth', label: 'Data de Nascimento' },
       { campo: 'phone', label: 'Telefone' },
       { campo: 'address', label: 'Endereço' }
     ];
@@ -49,10 +58,20 @@ export default function HospedeCard({ hospede, onChange, initialOpen = false, in
     }
   };
 
+  const wrapperClass = `reserva-wrapper${aberto ? ' aberto' : ''}${deletando ? ' delete-mode' : ''}${selecionado ? ' selected' : ''}`;
   return (
-    <div className={`reserva-wrapper${aberto ? ' aberto' : ''}`}>
+    <div className={wrapperClass}>
       <div className="reserva-header hospede-header" style={cadastro ? { cursor: 'default' } : {}}>
-        {cadastro ? (
+        {deletando && (
+          <input
+            aria-label="Selecionar hóspede para exclusão"
+            type="checkbox"
+            checked={selecionado}
+            onChange={e => { e.stopPropagation(); onToggleSelecionado?.(); }}
+            style={{ marginRight: '0.75rem' }}
+          />
+        )}
+  {cadastro ? (
           <div style={{ display: 'flex', width: '100%', alignItems: 'center', position: 'relative' }}>
             <div className="reserva-row" style={{ marginRight: '1rem', marginBottom: 0, flex: 1 }}>
               <label className='required' style={{ marginBottom: 0 }}>Nome:</label>
@@ -71,18 +90,29 @@ export default function HospedeCard({ hospede, onChange, initialOpen = false, in
                 pattern="[0-9]*"
                 inputMode="numeric"
                 value={localHospede.CPF}
-                onChange={e => handleFieldChange('CPF', e.target.value.replace(/\D/g, ''))}
+                onChange={e => handleFieldChange('CPF', formatCPF(e.target.value))}
                 disabled={!editando}
                 style={{ width: '180px', textAlign: 'center' }}
               />
+              {/* Checkbox para seleção de exclusão (renderizada quando pai passa prop 'deletando') */}
+              {/** The page will pass prop 'deletando' and 'selecionado' via HospedeCard props; we read them via hospede.deletando? handled in parent rendering **/}
             </div>
           </div>
         ) : (
           <>
             <span className="hospede-header__name">{localHospede.name}</span>
-            <span className="hospede-header__cpf">CPF: {localHospede.CPF}</span>
+            <span className="hospede-header__cpf">CPF: {formatCPF(localHospede.CPF)}</span>
             <button className="hospede-header__btn" onClick={e => { e.stopPropagation(); navigate(`/gerenciar-reservas?clienteId=${localHospede.id}`); }}>Gerenciar Reservas</button>
-            <span className={`hospede-header__arrow${aberto ? ' aberto' : ''}`} onClick={() => setAberto(a => !a)}>▼</span>
+            {mostrarBotaoEditar ? (
+              <button
+                className="hospede-header__btn"
+                onClick={e => { e.stopPropagation(); setAberto(true); setEditando(true); }}
+              >
+                Editar
+              </button>
+            ) : (
+              <span className={`hospede-header__arrow${aberto ? ' aberto' : ''}`} onClick={() => setAberto(a => !a)}>▼</span>
+            )}
           </>
         )}
       </div>
@@ -90,10 +120,7 @@ export default function HospedeCard({ hospede, onChange, initialOpen = false, in
         <div className="reserva-container" style={{ position: 'relative', paddingBottom: '3rem' }}>
           <div className="hospede-formulario-duas-colunas">
             <div className="hospede-coluna-esquerda">
-              <div className="reserva-row">
-                <label className='required'>Data de Nascimento:</label>
-                <input type="date" value={localHospede.birth} onChange={e => handleFieldChange('birth', e.target.value)} disabled={!editando} />
-              </div>
+              {/* Data de Nascimento removida — não é mais necessária */}
               <div className="reserva-row">
                 <label className='required'>Telefone:</label>
                 <input type="tel" pattern="[0-9]*" inputMode="numeric" value={localHospede.phone} onChange={e => handleFieldChange('phone', e.target.value.replace(/\D/g, ''))} disabled={!editando} />

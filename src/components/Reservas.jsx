@@ -120,8 +120,8 @@ const Reservas = ({ reservasSalvas = [], onCancelarCriacao, clienteId }) => {
   const campo = (nome, tipo = 'text') => {
     let min;
     if (tipo === 'date') {
-      if (nome === 'dataEntrada') min = hojeISO;
-      if (nome === 'dataSaida') min = reserva.dataEntrada || hojeISO;
+  // Allow past dates for dataEntrada per requirement
+  if (nome === 'dataSaida') min = reserva.dataEntrada || undefined;
     }
     return (
       <Campo

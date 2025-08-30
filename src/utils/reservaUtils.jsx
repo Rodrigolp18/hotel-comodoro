@@ -35,9 +35,7 @@ export function validarDatasReserva(dataEntrada, dataSaida) {
   if (!dataEntrada) {
     return { valido: false, mensagem: 'Preencha a data de entrada.' };
   }
-  if (dataEntrada < getHojeISO()) {
-    return { valido: false, mensagem: 'A data de entrada não pode ser anterior a hoje.' };
-  }
+  // Permit past dataEntrada; only validate relative ordering with dataSaida when present
   if (dataSaida) {
     if (dataEntrada > dataSaida) {
       return { valido: false, mensagem: 'A data de entrada não pode ser posterior à data de saída.' };
